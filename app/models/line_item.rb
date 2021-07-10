@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LineItem < ApplicationRecord
-  after_create :define_item_type, :create_tax_associations
+  after_create :define_item_type, :create_tax_associations, :adjust_price
 
   belongs_to :order
 
@@ -39,5 +39,13 @@ class LineItem < ApplicationRecord
 
     tax_import_id = TaxCategory.find_by(name: 'Imported').id
     TaxAssociation.create(line_item_id: id, tax_category_id: tax_import_id)
+  end
+
+  def adjust_price
+    summed_taxes = tax_categories.map do |tax|
+      ((tax.rate * price * quantity * 20).ceil / 20.00).round(2)
+    end.sum
+
+    update(total_taxes: summed_taxes, adjusted_price: price + summed_taxes)
   end
 end
