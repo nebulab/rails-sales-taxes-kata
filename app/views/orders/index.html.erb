@@ -1,0 +1,6 @@
+<h1>Receipt</h1>
+
+<%= form_tag({:action => :upload}, :multipart => true) do  %>
+  <%= file_field_tag :basket_data %>
+  <%= button_tag 'Upload', type: :submit %>
+<% end %>
