@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LineItem < ApplicationRecord
+  after_create :define_item_type, :create_tax_associations, :adjust_price
+
   belongs_to :order
 
   has_many :tax_associations, dependent: :destroy
