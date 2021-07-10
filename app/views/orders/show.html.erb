@@ -1,0 +1,30 @@
+<h1>Your Receipt</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Quantity</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @order.line_items.each do |li| %>
+    <tr>
+      <td><%= li.quantity %></td>
+      <td><%= li.product.name %>:</td>
+      <td><%= number_with_precision((li.product.price + li.product.tax), :precision => 2) %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><b>Sales Taxes: </b></td>
+    <td><b><%= number_with_precision(@order.total_taxes, :precision => 2) %></b></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><b>Total: </b></td>
+    <td><b><%= number_with_precision(@order.total, :precision => 2) %></b></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
-  def index; end
+  before_action :set_order, only: [:show]
+
+  def index
+    @orders = Order.all
+  end
 
   def show; end
 
@@ -11,5 +15,11 @@ class OrdersController < ApplicationController
       flash[:error] = e.message
       redirect_to root_path
     end
+  end
+
+  private
+
+  def set_order
+    @order = Order.find(params[:id])
   end
 end

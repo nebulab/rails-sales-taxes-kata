@@ -4,3 +4,12 @@
   <%= file_field_tag :basket_data %>
   <%= button_tag 'Upload', type: :submit %>
 <% end %>
+
+<h2>Your Past Receipts</h2>
+<% if @orders.any? %>
+<% @orders.each do |order| %>
+  <%= link_to "Number #{order.id}", order %><br/>
+<% end %>
+<% else %>
+  <div>Upload your order to create a receipt</div>
+<% end %>
