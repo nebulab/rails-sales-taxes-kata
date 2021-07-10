@@ -1,0 +1,13 @@
+Order/Basket:
+    relation: has many line items
+    attributes: total (float), total_taxes (float)
+
+Product:
+    attributes: name (string), price (float), import (boolean), exempt (boolean)
+
+LineItem:
+    relation: belongs to product
+    attributes: quantity (int), product_id
+
+1) Dealing with product category for tax exemption
+2) Dealing with txt file upload
