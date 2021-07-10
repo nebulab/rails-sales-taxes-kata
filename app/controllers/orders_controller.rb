@@ -13,7 +13,18 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new
+    BasketReader.read_basket(params[:order][:basket_items_file]).each do |line_item|
+      @order.line_items << line_item
+    end
 
+    if @order.save
+      @order.update_totals
+      redirect_to order_path(@order.id)
+    else
+      flash[:failure] = @order.errors.full_messages.to_s
+      redirect_to new_order_path
+    end
   end
 
   def show; end
