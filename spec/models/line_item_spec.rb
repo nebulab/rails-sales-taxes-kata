@@ -16,6 +16,18 @@ RSpec.describe LineItem do
   end
 
   describe 'Instance Methods' do
+    describe 'adjust_price' do
+      subject do
+        described_class.create(description: 'imported perfume bottle',
+                               price: 47.50,
+                               quantity: 1,
+                               order_id: Order.create.id)
+      end
+
+      it { expect(subject.adjusted_price).to eq(54.65) }
+      it { expect(subject.total_taxes).to eq(7.15) }
+    end
+
     describe 'tax_categories' do
       context 'with single tax category' do
         subject do
