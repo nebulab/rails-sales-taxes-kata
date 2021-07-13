@@ -1,4 +1,23 @@
 # Rails Sales Taxes Kata
+
+## Solution Rails Application
+To run this app, run the following commands in the app directory:
+
+`bundle install`
+
+`rails db:create`
+
+`rails db:migrate`
+
+`rails server`
+
+Run the specs with the `rspec` command.
+
+Navigate to `http://localhost:3000` to view the app.
+
+Use the `choose file` button to upload your basket txt file. 
+Previously generated receipts will be accessible from the home page after upload.
+
 ## Introduction
 
 You should provide sufficient evidence that your solution is complete by,
