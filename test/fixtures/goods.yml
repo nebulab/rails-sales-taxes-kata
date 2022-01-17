@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: MyString
+  price: MyString
+  basic_tax: MyString
+  import_tax: MyString
+  final_price: MyString
+  basket: one
+
+two:
+  name: MyString
+  quantity: MyString
+  price: MyString
+  basic_tax: MyString
+  import_tax: MyString
+  final_price: MyString
+  basket: two
