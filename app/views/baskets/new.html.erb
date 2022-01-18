@@ -1,2 +1,6 @@
-<h1>Baskets#new</h1>
-<p>Find me in app/views/baskets/new.html.erb</p>
+<div>
+<h5> Upload basket </h5>
+<%= form_tag({:action => :create}, :multipart => true) do %>
+    <%= file_field_tag 'file'%>
+    <%= submit_tag 'submit'%>
+<% end %>

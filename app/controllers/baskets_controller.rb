@@ -29,5 +29,6 @@ class BasketsController < ApplicationController
       good = basket.goods.build(name: name, price: price, quantity: quantity, basic_tax: 0, import_tax: 0)
       good.save
     end
+    basket
   end
 end
