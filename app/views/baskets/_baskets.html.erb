@@ -1,0 +1,5 @@
+<div>
+<% baskets.each do |basket|%>
+    <a href= <%= basket_path(basket.id)%> > basket <%= basket.id%> </a>
+    <%end%>
+</div>
