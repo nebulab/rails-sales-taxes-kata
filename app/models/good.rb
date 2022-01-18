@@ -7,11 +7,15 @@ class Good < ApplicationRecord
 
   def calulate_tax_update_price
     exampt = %w[chocolate book pills]
-    self.basic_tax = (price.to_f.round(2) * 0.1).round(2) unless exampt.any? do |exeption|
-                                                                   name.include?(exeption)
-                                                                 end
-    self.import_tax = (price.to_f.round(2) * 0.05).round(2) if name.include?('imported')
-    fprice = quantity.to_f * (price.to_f.round(2) + basic_tax.to_f.round(2) + import_tax.to_f.round(2))
+    self.basic_tax = round_up(price.to_f.round(2) * 0.1) unless exampt.any? do |exeption|
+                                                                  name.include?(exeption)
+                                                                end
+    self.import_tax = round_up(price.to_f.round(2) * 0.05) if name.include?('imported')
+    fprice = quantity.to_f * (price.to_f.round(2) + basic_tax.to_f + import_tax.to_f)
     self.final_price = fprice.round(2)
+  end
+
+  def round_up(value)
+    (value * 20).ceil / 20.0
   end
 end
