@@ -1,24 +1,63 @@
-# README
+# Rails Sales taxes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Simple rails app where users upload a file with the content of a basket then prints the receipts on the web page.
 
-Things you may want to cover:
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby v2.7.1
+- Ruby on Rails v6.0.4
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+Ruby: 2.7.1
 
-* Services (job queues, cache servers, search engines, etc.)
+npm: run <code> npm install </code>
 
-* Deployment instructions
+yarn
 
-* ...
+Rails: 6.0.4
+
+
+### Setup
+
+Clone the repository with:
+```
+git clone https://github.com/safafa/rails-sales-taxes-kata.git
+```
+Move to the root directory
+
+Instal gems with:
+
+```
+bundle install
+```
+
+Setup database with:
+
+```
+   rails db:create
+   rails db:migrate
+```
+
+
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+    rspec 
+```
