@@ -3,10 +3,6 @@ class Basket < ApplicationRecord
 
   before_save :update_taxes_update_price
 
-  def handle_file(file)
-    file.read.split("\n")
-  end
-
   private
 
   def update_taxes_update_price

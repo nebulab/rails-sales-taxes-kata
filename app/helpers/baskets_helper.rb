@@ -1,6 +1,6 @@
 module BasketsHelper
   def build_goods(basket)
-    entries = basket.handle_file(params[:file])
+    entries = params[:file].read.split("\n")
     entries.each do |entry|
       info = entry.split
       quantity = info[0]
