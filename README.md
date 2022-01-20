@@ -18,7 +18,7 @@ Ruby: 2.7.1
 
 npm: run <code> npm install </code>
 
-yarn
+yarn: run <code> npm install --global yarn </code>
 
 Rails: 6.0.4
 
