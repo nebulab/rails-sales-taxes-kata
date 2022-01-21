@@ -17,8 +17,8 @@ class Good < ApplicationRecord
   end
 
   def calcul_basic_tax(price, name)
-    round_up(price.to_f.round(2) * BASIC_TAX_RATE) unless EXEMPT_FROM_TAX.any? do |exeption|
-      name.include?(exeption)
+    round_up(price.to_f.round(2) * BASIC_TAX_RATE) unless EXEMPT_FROM_TAX.any? do |exception|
+      name.include?(exception)
     end
   end
 

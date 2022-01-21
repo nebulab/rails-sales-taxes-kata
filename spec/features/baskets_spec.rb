@@ -7,15 +7,11 @@ RSpec.describe 'Basket upload and show receipt', type: :feature do
     click_button 'submit'
   end
 
-  it 'uploads basket' do
-    expect(page).to have_content 'imported bottle of perfume'
-  end
-
-  it 'calculate Sales taxes' do
+  it 'Calculates Sales taxes' do
     expect(page).to have_content 'Sales taxes : 7.65'
   end
 
-  it 'calculate Total' do
+  it 'Calculates Total' do
     expect(page).to have_content 'Total: 65.15'
   end
 
