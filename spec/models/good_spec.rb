@@ -8,8 +8,8 @@ RSpec.describe Good, type: :model do
   describe 'test callback method calulate_tax_update_price' do
     before do
       basket = create(:basket)
-      @good = create(:good, name: 'imported bottle of perfume', quantity: '1', price: '47.50', basket: basket)
-      @choco = create(:good, name: 'imported chocolate', quantity: '1', price: '10.00', basket: basket)
+      @good = create(:perfume, basket: basket)
+      @choco = create(:chocolate, basket: basket)
     end
 
     it 'Updates the basic tax before saving' do
