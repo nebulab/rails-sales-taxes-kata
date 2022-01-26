@@ -3,6 +3,18 @@ class Basket < ApplicationRecord
 
   before_save :update_taxes_update_price
 
+  def build_goods_from_file_upload(file)
+    entries = file.read.split("\n")
+    entries.each do |entry|
+      info = entry.split
+      quantity = info[0]
+      price = info[-1]
+      name = info[1..-3].join(' ')
+      good = goods.build(name: name, price: price, quantity: quantity, basic_tax: 0, import_tax: 0)
+      good.save
+    end
+  end
+
   private
 
   def update_taxes_update_price

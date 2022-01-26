@@ -12,7 +12,8 @@ class BasketsController < ApplicationController
   end
 
   def create
-    @basket = helpers.build_goods(Basket.new(sales_taxes: 0, total: 0))
+    @basket = Basket.new(sales_taxes: 0, total: 0)
+    @basket.build_goods_from_file_upload(params[:file])
     @basket.save
     redirect_to basket_path(@basket.id)
   end
