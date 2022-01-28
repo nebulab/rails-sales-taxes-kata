@@ -1,7 +1,7 @@
 class Basket < ApplicationRecord
   has_many :goods, dependent: :destroy
 
-  before_save :update_taxes_update_price
+  before_save :update_taxes_update_total
 
   def build_goods_from_file_upload(file)
     entries = file.read.split("\n")
@@ -17,7 +17,7 @@ class Basket < ApplicationRecord
 
   private
 
-  def update_taxes_update_price
+  def update_taxes_update_total
     self.sales_taxes = sum_tax
     self.total = sum_total
   end

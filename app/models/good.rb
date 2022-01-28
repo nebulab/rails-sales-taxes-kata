@@ -11,22 +11,22 @@ class Good < ApplicationRecord
   private
 
   def calulate_tax_update_price
-    self.basic_tax = calcul_basic_tax(price, name)
-    self.import_tax = calcul_import_tax(price, name)
-    self.final_price = calcul_final_price(quantity, price, basic_tax, import_tax)
+    self.basic_tax = calcul_basic_tax
+    self.import_tax = calcul_import_tax
+    self.final_price = calcul_final_price
   end
 
-  def calcul_basic_tax(price, name)
+  def calcul_basic_tax
     round_up(price.to_f.round(2) * BASIC_TAX_RATE) unless EXEMPT_FROM_TAX.any? do |exception|
       name.include?(exception)
     end
   end
 
-  def calcul_import_tax(price, name)
+  def calcul_import_tax
     round_up(price.to_f.round(2) * IMPORT_TAX_RATE) if name.include?('imported')
   end
 
-  def calcul_final_price(quantity, price, basic_tax, import_tax)
+  def calcul_final_price
     (quantity.to_f * (price.to_f.round(2) + basic_tax.to_f + import_tax.to_f)).round(2)
   end
 
