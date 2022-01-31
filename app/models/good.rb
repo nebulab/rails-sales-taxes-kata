@@ -17,13 +17,17 @@ class Good < ApplicationRecord
   end
 
   def calcul_basic_tax
-    round_up(price.to_f.round(2) * BASIC_TAX_RATE) unless EXEMPT_FROM_TAX.any? do |exception|
+    return round_up(price.to_f.round(2) * BASIC_TAX_RATE) unless EXEMPT_FROM_TAX.any? do |exception|
       name.include?(exception)
     end
+
+    '0'
   end
 
   def calcul_import_tax
-    round_up(price.to_f.round(2) * IMPORT_TAX_RATE) if name.include?('imported')
+    return round_up(price.to_f.round(2) * IMPORT_TAX_RATE) if name.include?('imported')
+
+    '0'
   end
 
   def calcul_final_price

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :exempt, class: 'Good' do
-    name { 'imported chocolate' }
+    name { 'chocolate' }
     quantity { '1' }
     price { '10.00' }
     basic_tax { '0' }
