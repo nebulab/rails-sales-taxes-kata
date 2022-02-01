@@ -1,0 +1,6 @@
+<div>
+<h5> Upload basket </h5>
+<%= form_tag({:action => :create}, :multipart => true) do %>
+    <%= file_field_tag 'file'%>
+    <%= submit_tag 'submit'%>
+<% end %>

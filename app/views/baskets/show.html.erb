@@ -1,0 +1,4 @@
+<h1>Basket <%=@basket.id%></h1>
+<%= render "goods", goods: @basket.goods %>
+<p> Sales taxes : <%=@basket.sales_taxes%> </p>
+<p> Total: <%=@basket.total%> </p>

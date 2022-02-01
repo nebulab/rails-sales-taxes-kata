@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sales_taxes: MyString
+  total: MyString
+  name: MyString
+
+two:
+  sales_taxes: MyString
+  total: MyString
+  name: MyString
